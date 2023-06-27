@@ -126,6 +126,7 @@ impl State {
                 label: Some("Render Encoder"),
             });
 
+        // the extra block tells rust to drop any variables when code leaves scope
         {
             let _render_pass = encoder.begin_render_pass(&wgpu::RenderPassDescriptor {
                 label: Some("Render Pass"),

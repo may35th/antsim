@@ -8,8 +8,6 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 cfg-if = "1"
-
-# the other regular dependencies...
 winit = "0.28"
 env_logger = "0.10"
 log = "0.4"
