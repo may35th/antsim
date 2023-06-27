@@ -190,6 +190,7 @@ pub async fn run() {
     // State::new uses async code, so we're going to wait for it to finish
     let mut state = State::new(window).await;
 
+    // run()
     event_loop.run(move |event, _, control_flow| {
         match event {
             Event::WindowEvent {
@@ -230,7 +231,7 @@ pub async fn run() {
                     }
                     // The system is out of memory, we should probably quit
                     Err(wgpu::SurfaceError::OutOfMemory) => *control_flow = ControlFlow::Exit,
-
+                    // All other errors (Outdated, Timeout) should be resolved by the next frame
                     Err(wgpu::SurfaceError::Timeout) => log::warn!("Surface timeout"),
                 }
             }
